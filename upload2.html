@@ -1,0 +1,35 @@
+<!doctype html>
+<head>
+<title>files upload</title>
+</head>
+
+<body>
+{% extends "index.html" %}
+{%block content%}
+
+    <br>
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <br>    
+    <input type="file" name="files[]" multiple="true" autocomplete="off" required>
+    <br>
+    <br>
+    <input type="submit" value="Upload Files">
+    <br>
+    </form>
+
+    <p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    </p>
+    
+
+{% endblock %}
+
+</body>
