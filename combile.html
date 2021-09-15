@@ -1,0 +1,57 @@
+<!doctype html>
+<head><title>combine_file _page </title>
+</head>
+<body>
+
+
+{% extends "index.html" %}
+
+{%block content%}
+
+<br>
+<br>
+<div class="center-text">
+	<a href="{{ url_for('merge') }}"> Click ..Merge Files</a>
+</div>
+<br>
+<br>
+
+<p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+	</p>
+	
+<h3>Download a file</h3>
+<br>
+<div class="center-text">
+	<a href="{{ url_for('.download_file') }}">Click ..Download Merge Files</a>
+</div>
+
+    <table >
+
+      <tbody>
+  
+         {% for item in list11 %}
+         <pre>
+
+             <tr>
+               <b><td>{{item}}</td></b><br>
+             </tr>
+         </pre>
+
+          {% endfor %}
+  
+     </tbody>
+  
+    </table>
+  
+{% endblock %}
+
+</body>
